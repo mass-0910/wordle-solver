@@ -20,3 +20,7 @@ Wordle solver v0.1
 5 query: "argue" ? ggggg
 success argue 5/6
 ```
+
+## 事前準備
+
+[日本語WordNet](http://compling.hss.ntu.edu.sg/wnja/)のサイトから「Japanese Wordnet and English WordNet in an sqlite3 database」をダウンロードして解凍し、dbファイルをプロジェクト内に`wn.db`という名前で保存してください。
