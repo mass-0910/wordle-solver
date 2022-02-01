@@ -28,7 +28,7 @@ def popular(word: str) -> int:
         popular_point -= 20
     return popular_point
 
-def is_candidate(word: str, green, yellow, blue) -> bool:
+def is_candidate(word: str, green, yellow, black) -> bool:
     #green_check
     for i, a in enumerate(word):
         if green[i] != None and a != green[i]:
@@ -38,19 +38,19 @@ def is_candidate(word: str, green, yellow, blue) -> bool:
         for a in yellow:
             if not a in word:
                 return False
-    #blue check
+    #black check
     for i, a in enumerate(word):
-        if a in blue[i]:
+        if a in black[i]:
             return False
     return True
 
-def make_query(green, yellow, blue, word5list: list) -> str:
+def make_query(green, yellow, black, word5list: list) -> str:
     for word in word5list:
-        if is_candidate(word, green, yellow, blue):
+        if is_candidate(word, green, yellow, black):
             return word
     return None
 
-def stote_result(result: str, green, yellow, blue):
+def stote_result(result: str, green, yellow, black):
     if len(result) != 5:
         print("Error: invalid number of character")
         raise InputError
@@ -62,10 +62,10 @@ def stote_result(result: str, green, yellow, blue):
             green[j] = query[j]
         elif a == 'y':
             yellow.append(query[j])
-            blue[j].append(query[j])
+            black[j].append(query[j])
         elif a == 'b':
             for k in range(5):
-                blue[k].append(query[j])
+                black[k].append(query[j])
 
 def join_green(green) -> str:
     s = ""
@@ -88,11 +88,11 @@ if __name__ == "__main__":
     word_5.sort(key=popular, reverse=True)
     green = [None, None, None, None, None]
     yellow = []
-    blue = [[], [], [], [], []]
+    black = [[], [], [], [], []]
     i = 0
     while i < 6:
         i += 1
-        query = make_query(green, yellow, blue, word_5)
+        query = make_query(green, yellow, black, word_5)
         if query == None:
             print("Cannot find anser word from DB!!")
             break
@@ -104,7 +104,7 @@ if __name__ == "__main__":
                 i -= 1
                 break
             try:
-                stote_result(result, green, yellow, blue)
+                stote_result(result, green, yellow, black)
             except InputError:
                 continue
             break
