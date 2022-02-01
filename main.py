@@ -77,14 +77,10 @@ def join_green(green) -> str:
     return s
 
 if __name__ == "__main__":
-    print("Wordle solver v0.1")
-    con = sqlite3.connect("wn.db")
-    cur = con.execute("select lemma from word where lang='eng'")
+    print("Wordle solver v0.2")
     word_5 = []
-    for row in cur:
-        if len(row[0]) == 5:
-            word_5.append(row[0])
-    word_5 = list(set(word_5))
+    with open("wordlist.txt") as fp:
+        word_5 = [l.strip() for l in fp.readlines()]
     word_5.sort(key=popular, reverse=True)
     green = [None, None, None, None, None]
     yellow = []

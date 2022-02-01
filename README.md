@@ -23,4 +23,4 @@ success argue 5/6
 
 ## 事前準備
 
-[日本語WordNet](http://compling.hss.ntu.edu.sg/wnja/)のサイトから「Japanese Wordnet and English WordNet in an sqlite3 database」をダウンロードして解凍し、dbファイルをプロジェクト内に`wn.db`という名前で保存してください。
+[Wordle回答リスト](https://github.com/alex1770/wordle/blob/main/wordlist_hidden)を全てコピーし、プロジェクト内に`wordlist.txt`という名前で保存してください。
