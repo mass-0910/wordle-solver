@@ -10,7 +10,7 @@
 
 (例えば、正解がargueでクエリがdreamの場合、結果は`bgyyb`と入力する)
 
-```
+```console
 $ python main.py
 Wordle solver v0.1
 1 query: "other" ? bbbyy
@@ -24,3 +24,9 @@ success argue 5/6
 ## 事前準備
 
 [Wordle回答リスト](https://github.com/alex1770/wordle/blob/main/wordlist_hidden)を全てコピーし、プロジェクト内に`wordlist.txt`という名前で保存してください。
+
+## 性能テスト
+ソルバの性能をテストするためのプログラムです。  
+```console
+$ python wordletest.py
+```
